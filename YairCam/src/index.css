@@ -1,0 +1,111 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  height: 100vh;
+  width: 100vw;
+}
+
+@keyframes futuristic-zoom-glitch {
+  0% {
+    transform: scale(0) rotateX(0deg) rotateY(0deg);
+    filter: hue-rotate(0deg) brightness(2);
+    opacity: 0;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.6),
+                 0 0 30px rgba(0, 255, 255, 0.4);
+  }
+  30% {
+    transform: scale(1.2) rotateX(180deg) rotateY(90deg);
+    filter: hue-rotate(90deg) brightness(3);
+    opacity: 1;
+    text-shadow: 0 0 15px rgba(255, 0, 255, 0.9), 0 0 30px rgba(255, 0, 255, 0.6),
+                 0 0 50px rgba(255, 0, 255, 0.4);
+  }
+  60% {
+    transform: scale(0.8) rotateX(360deg) rotateY(180deg);
+    filter: hue-rotate(180deg) brightness(2);
+    text-shadow: 0 0 20px rgba(0, 255, 0, 1), 0 0 40px rgba(0, 255, 0, 0.8),
+                 0 0 60px rgba(0, 255, 0, 0.6);
+  }
+  100% {
+    transform: scale(1) rotateX(0deg) rotateY(0deg);
+    filter: hue-rotate(360deg) brightness(1);
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 1), 0 0 20px rgba(0, 255, 255, 0.8),
+                 0 0 30px rgba(0, 255, 255, 0.6);
+  }
+}
+
+.futuristic-transform {
+    animation: futuristic-zoom-glitch 1.2s ease-in-out;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    color: #00FFFF; /* Neon cyan */
+    font-size: 3rem;
+    font-family: 'Orbitron', sans-serif; /* Futuristic font */
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 0 0 20px rgba(0, 255, 255, 0.5),
+                 0 0 30px rgba(0, 255, 255, 0.3);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  margin: 0;
+}
+
+.futuristic-photo-grid {
+  display: flex;
+  gap: 20px;
+}
+
+.futuristic-photo {
+  width: 200px;
+  height: 300px;
+  perspective: 1000px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.6s ease-in-out;
+  transform-style: preserve-3d;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.3), 0 0 60px rgba(0, 255, 255, 0.2);
+}
+
+.futuristic-photo:hover {
+  transform: scale(1.1) rotateY(20deg) rotateX(10deg);
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.6), 0 0 80px rgba(0, 255, 255, 0.4);
+}
+
+.futuristic-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;  /* Ensures the entire photo is shown */
+  border-radius: 15px;
+  transition: filter 0.6s ease-in-out;
+  filter: brightness(1.2);
+}
+
+.futuristic-photo:hover img {
+  filter: brightness(1.5) contrast(1.2);
+}
+
+.futuristic-photo:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.7), 0 0 30px rgba(0, 255, 255, 0.5),
+              0 0 45px rgba(0, 255, 255, 0.3);
+  z-index: -1;
+  opacity: 0.7;
+  transition: opacity 0.6s ease;
+}
+
+.futuristic-photo:hover:before {
+  opacity: 1;
+}
+
